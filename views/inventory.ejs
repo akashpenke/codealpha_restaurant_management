@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Inventory</title>
+  <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+  <h1>Inventory Management</h1>
+  <a href="/admin/dashboard">← Back to Dashboard</a>
+  <hr>
+
+  <h2>Add Item</h2>
+  <form method="POST" action="/category/inventory/add">
+    <input type="text" name="itemName" placeholder="Item Name" required>
+    <input type="number" name="quantity" placeholder="Quantity" required>
+    <input type="text" name="unit" placeholder="Unit (e.g., kg, pcs)" required>
+    <button type="submit">Add</button>
+  </form>
+
+  <h2>Inventory List</h2>
+  <% if (items.length === 0) { %>
+    <p>No inventory items yet.</p>
+  <% } else { %>
+    <table border="1">
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Unit</th>
+        <th>Last Updated</th>
+        <th>Actions</th>
+      </tr>
+      <% items.forEach(item => { %>
+        <tr>
+          <td><%= item.itemName %></td>
+          <td><%= item.quantity %></td>
+          <td><%= item.unit %></td>
+          <td><%= item.updatedAt.toLocaleString() %></td>
+          <td>
+            <form method="POST" action="/category/inventory/update/<%= item._id %>" style="display:inline;">
+              <input type="number" name="quantity" placeholder="New Qty" required>
+              <button type="submit">Update</button>
+            </form>
+            <form method="POST" action="/category/inventory/delete/<%= item._id %>" style="display:inline;">
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </table>
+  <% } %>
+</body>
+</html>

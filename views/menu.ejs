@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Manage Menu</title>
+  <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+  <h1>Manage Menu</h1>
+  <a href="/admin/dashboard">← Back to Dashboard</a>
+  <hr>
+
+  <h2>Add New Item</h2>
+  <form method="POST" action="/category/menu/add">
+    <input type="text" name="name" placeholder="Item Name" required>
+    <input type="number" name="price" placeholder="Price" required>
+    <button type="submit">Add</button>
+  </form>
+
+  <h2>Current Menu</h2>
+  <% if (menuItems.length === 0) { %>
+    <p>No items in the menu.</p>
+  <% } else { %>
+    <ul>
+      <% menuItems.forEach(item => { %>
+        <li>
+          <strong><%= item.name %></strong> - ₹<%= item.price %>
+          <form method="POST" action="/category/menu/delete/<%= item._id %>" style="display:inline;">
+            <button type="submit">Delete</button>
+          </form>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+</body>
+</html>

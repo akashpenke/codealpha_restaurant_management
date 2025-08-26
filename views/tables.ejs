@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Manage Tables</title>
+  <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+  <h1>Manage Tables</h1>
+  <a href="/admin/dashboard">← Back to Dashboard</a>
+  <hr>
+
+  <h2>Add Table</h2>
+  <form method="POST" action="/category/tables/add">
+    <input type="number" name="tableNumber" placeholder="Table Number" required>
+    <input type="number" name="capacity" placeholder="Capacity" required>
+    <button type="submit">Add</button>
+  </form>
+
+  <h2>Current Tables</h2>
+  <% if (tables.length === 0) { %>
+    <p>No tables added yet.</p>
+  <% } else { %>
+    <table border="1">
+      <tr>
+        <th>Table #</th>
+        <th>Capacity</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+      <% tables.forEach(table => { %>
+        <tr>
+          <td><%= table.tableNumber %></td>
+          <td><%= table.capacity %></td>
+          <td><%= table.isAvailable ? "Available" : "Occupied" %></td>
+          <td>
+            <form method="POST" action="/category/tables/toggle/<%= table._id %>" style="display:inline;">
+              <button type="submit">
+                Mark as <%= table.isAvailable ? "Occupied" : "Available" %>
+              </button>
+            </form>
+            <form method="POST" action="/category/tables/delete/<%= table._id %>" style="display:inline;">
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </table>
+  <% } %>
+</body>
+</html>
