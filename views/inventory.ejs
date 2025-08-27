@@ -2,8 +2,127 @@
 <html>
 <head>
   <title>Inventory</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
 
+    body {
+      background: #fafafa;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    a {
+      color: #e74c3c;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    a:hover {
+      color: #c0392b;
+      text-decoration: underline;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    hr {
+      margin: 20px 0;
+    }
+
+    form {
+      margin: 20px auto;
+      max-width: 500px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+    }
+
+    form input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    form input:focus {
+      border-color: #e67e22;
+      outline: none;
+    }
+
+    form button {
+      background: #e67e22;
+      color: #fff;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    form button:hover {
+      background: #d35400;
+    }
+
+    table {
+      width: 95%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    table th, table td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
+
+    table th {
+      background: #e67e22;
+      color: #fff;
+    }
+
+    table tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    td form {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      box-shadow: none;
+      background: none;
+    }
+
+    td form input {
+      width: 90px;
+      margin: 5px;
+      display: inline-block;
+    }
+
+    td form button {
+      padding: 6px 12px;
+      font-size: 13px;
+    }
+  </style>
 </head>
 <body>
   <h1>Inventory Management</h1>
@@ -20,9 +139,9 @@
 
   <h2>Inventory List</h2>
   <% if (items.length === 0) { %>
-    <p>No inventory items yet.</p>
+    <p style="text-align:center;">No inventory items yet.</p>
   <% } else { %>
-    <table border="1">
+    <table>
       <tr>
         <th>Item</th>
         <th>Quantity</th>
@@ -37,12 +156,12 @@
           <td><%= item.unit %></td>
           <td><%= item.updatedAt.toLocaleString() %></td>
           <td>
-            <form method="POST" action="/category/inventory/update/<%= item._id %>" style="display:inline;">
+            <form method="POST" action="/category/inventory/update/<%= item._id %>">
               <input type="number" name="quantity" placeholder="New Qty" required>
               <button type="submit">Update</button>
             </form>
-            <form method="POST" action="/category/inventory/delete/<%= item._id %>" style="display:inline;">
-              <button type="submit">Delete</button>
+            <form method="POST" action="/category/inventory/delete/<%= item._id %>">
+              <button type="submit" style="background:#e74c3c;">Delete</button>
             </form>
           </td>
         </tr>
