@@ -2,11 +2,45 @@
 <html>
 <head>
   <title>Order Success</title>
-  <link rel="stylesheet" href="/css/style.css">
-
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 40px;
+      text-align: center;
+    }
+    h2 {
+      color: #27ae60;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    a {
+      text-decoration: none;
+      background: #3498db;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      transition: background 0.3s;
+      font-size: 16px;
+    }
+    a:hover {
+      background: #2980b9;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: inline-block;
+      margin-top: 80px;
+    }
+  </style>
 </head>
 <body>
-  <h2>Thank you! Your order has been placed.</h2>
-  <a href="/user/dashboard">Back to Menu</a>
+  <div class="card">
+    <h2>✅ Thank you! Your order has been placed.</h2>
+    <a href="/user/dashboard">Back to Menu</a>
+  </div>
 </body>
 </html>
