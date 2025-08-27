@@ -2,11 +2,69 @@
 <html>
 <head>
   <title>User Dashboard</title>
-  <link rel="stylesheet" href="/css/style.css">
-
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    a {
+      display: inline-block;
+      margin-bottom: 15px;
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
+    h2 {
+      color: #444;
+      margin-top: 20px;
+    }
+    form {
+      background: #fff;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      max-width: 500px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input[type="text"], 
+    input[type="date"], 
+    input[type="time"], 
+    input[type="number"] {
+      width: 95%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    input[type="checkbox"] {
+      margin-right: 8px;
+    }
+    button {
+      background: #28a745;
+      color: white;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+    button:hover {
+      background: #218838;
+    }
+    hr {
+      margin: 30px 0;
+      border: 1px solid #ddd;
+    }
+  </style>
 </head>
 <body>
-    <a href="/">← Back to Home</a>
+  <a href="/">← Back to Home</a>
 
   <h2>Menu</h2>
   <form method="POST" action="/user/order">
@@ -20,17 +78,17 @@
 
     <br>
     <button type="submit">Place Order</button>
-    
   </form>
-  <hr>
-<h2>Reserve a Table</h2>
-<form method="POST" action="/user/reserve">
-  <input type="text" name="name" placeholder="Your Name" required><br>
-  <input type="date" name="date" required><br>
-  <input type="time" name="time" required><br>
-  <input type="number" name="guests" placeholder="Guests" required><br>
-  <button type="submit">Reserve</button>
-</form>
 
+  <hr>
+
+  <h2>Reserve a Table</h2>
+  <form method="POST" action="/user/reserve">
+    <input type="text" name="name" placeholder="Your Name" required><br>
+    <input type="date" name="date" required><br>
+    <input type="time" name="time" required><br>
+    <input type="number" name="guests" placeholder="Guests" required><br>
+    <button type="submit">Reserve</button>
+  </form>
 </body>
 </html>
