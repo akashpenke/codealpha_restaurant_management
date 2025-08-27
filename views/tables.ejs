@@ -3,7 +3,95 @@
 <head>
   <title>Manage Tables</title>
   <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      padding: 30px;
+    }
 
+    h1 {
+      color: #2c3e50;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #3498db;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    hr {
+      margin: 20px 0;
+      border: 0;
+      border-top: 1px solid #ddd;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 10px;
+      margin: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      background: #3498db;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 3px;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #2980b9;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background: #3498db;
+      color: white;
+    }
+
+    tr:hover {
+      background: #f9f9f9;
+    }
+
+    .status-available {
+      color: #27ae60;
+      font-weight: bold;
+    }
+
+    .status-occupied {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
   <h1>Manage Tables</h1>
@@ -21,7 +109,7 @@
   <% if (tables.length === 0) { %>
     <p>No tables added yet.</p>
   <% } else { %>
-    <table border="1">
+    <table>
       <tr>
         <th>Table #</th>
         <th>Capacity</th>
@@ -32,7 +120,9 @@
         <tr>
           <td><%= table.tableNumber %></td>
           <td><%= table.capacity %></td>
-          <td><%= table.isAvailable ? "Available" : "Occupied" %></td>
+          <td class="<%= table.isAvailable ? 'status-available' : 'status-occupied' %>">
+            <%= table.isAvailable ? "Available" : "Occupied" %>
+          </td>
           <td>
             <form method="POST" action="/category/tables/toggle/<%= table._id %>" style="display:inline;">
               <button type="submit">
