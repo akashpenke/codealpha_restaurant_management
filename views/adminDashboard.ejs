@@ -2,10 +2,74 @@
 <html>
 <head>
   <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+      background: #fafafa;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+      text-align: center;
+    }
+
+    a {
+      color: #e74c3c;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+
+    a:hover {
+      color: #c0392b;
+      text-decoration: underline;
+    }
+
+    h1 {
+      margin: 20px 0;
+      color: #2c3e50;
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 0;
+    }
+
+    ul li {
+      background: #fff;
+      padding: 15px 25px;
+      border-radius: 10px;
+      box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    ul li:hover {
+      transform: translateY(-3px);
+      background: #fceae6;
+    }
+
+    ul li a {
+      color: #e67e22;
+      font-weight: 600;
+    }
+
+    ul li a:hover {
+      color: #d35400;
+    }
+  </style>
 </head>
 <body>
-    <a href="/">← Back to Home</a>
+  <a href="/">← Back to Home</a>
 
   <h1>Welcome, Admin</h1>
   <ul>
