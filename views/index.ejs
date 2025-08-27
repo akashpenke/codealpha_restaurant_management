@@ -2,33 +2,52 @@
 <html>
 <head>
   <title>Restaurant</title>
-  <link rel="stylesheet" href="/css/style.css">
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #f4f4f4;
+      background: #fafafa;
     }
+
     .container {
       text-align: center;
-      background: white;
-      padding: 40px;
+      background: #fff;
+      padding: 50px;
       border-radius: 12px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 400px;
     }
+
+    h1 {
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+
     a {
-      margin: 0 10px;
-      padding: 10px 20px;
-      background: #3498db;
+      display: inline-block;
+      margin: 10px 5px;
+      padding: 12px 24px;
+      background: #e67e22;
       color: white;
+      font-weight: bold;
       text-decoration: none;
       border-radius: 8px;
+      transition: 0.3s;
     }
+
     a:hover {
-      background: #2980b9;
+      background: #d35400;
+      transform: translateY(-2px);
     }
   </style>
 </head>
